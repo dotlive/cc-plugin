@@ -54,20 +54,25 @@ class Utils {
     menuPackage(name) {
         return this.doI18n(this.builtinMenu.package, name);
     }
-    doI18n(head, name) {
+    doI18n(head, name, separator = '/') {
         if (!this._init) {
             console.error("need init");
             return "";
         }
         const i18nFlag = "i18n.";
-        if (name.startsWith(i18nFlag)) {
-            name = name.substring(i18nFlag.length, name.length);
-            service_1.cocosPluginService.checkI18nKey(name);
-            return `${head}/${this.i18n(name)}`;
+        const newPathParts = Array();
+        const curPathParts = name.split(separator);
+        for (let pathPart in curPathParts) {
+            if (pathPart.startsWith(i18nFlag)) {
+                pathPart = pathPart.substring(i18nFlag.length, pathPart.length);
+                service_1.cocosPluginService.checkI18nKey(pathPart);
+                newPathParts.push(`${head}/${this.i18n(pathPart)}`);
+            }
+            else {
+                newPathParts.push(`${head}/${pathPart}`);
+            }
         }
-        else {
-            return `${head}/${name}`;
-        }
+        return newPathParts.join(separator);
     }
     i18n(key) {
         const pkgName = this.manifest.name;

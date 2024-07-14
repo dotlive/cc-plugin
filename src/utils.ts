@@ -50,25 +50,29 @@ class Utils {
     menuPackage(name: string): string {
         return this.doI18n(this.builtinMenu.package, name);
     }
-    private doI18n(head: string, name: string): string {
+    private doI18n(head: string, name: string, separator: string = '/'): string {
         if (!this._init) {
             console.error("need init");
             return "";
         }
         const i18nFlag = "i18n.";
-        if (name.startsWith(i18nFlag)) {
-            name = name.substring(i18nFlag.length, name.length);
-            cocosPluginService.checkI18nKey(name);
-            return `${head}/${this.i18n(name)}`;
-        } else {
-            return `${head}/${name}`;
+        const newPathParts = Array<string>();
+        const curPathParts = name.split(separator);
+        for (let pathPart in curPathParts) {
+            if (pathPart.startsWith(i18nFlag)) {
+                pathPart = pathPart.substring(i18nFlag.length, pathPart.length);
+                cocosPluginService.checkI18nKey(pathPart);
+                newPathParts.push(`${head}/${this.i18n(pathPart)}`);
+            } else {
+                newPathParts.push(`${head}/${pathPart}`);
+            }
         }
+        return newPathParts.join(separator);
     }
     i18n(key: string) {
         const pkgName = this.manifest!.name;
         return this.toi18n(`${pkgName}.${key}`);
     }
-
     toi18n(key: string) {
         return `i18n:${key}`;
     }
