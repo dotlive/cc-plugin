@@ -47,8 +47,8 @@ class Utils {
     menuProject(name: string): string {
         return this.doI18n(this.builtinMenu.project, name);
     }
-    menuPackage(name: string): string {
-        return this.doI18n(this.builtinMenu.package, name);
+    menuPackage(root: string, name: string): string {
+        return this.doI18n(root, name);
     }
     private doI18n(head: string, name: string, separator: string = '/'): string {
         if (!this._init) {

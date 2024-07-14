@@ -49,7 +49,7 @@ class PackageV2 extends PackageInterface {
         let menus = this.packageData['main-menu'];
         const { name } = menu.message;
         const panel = menu.message.panel || this.config.manifest.name;
-        const menuReal = utils_1.default.menuPackage(menu.path);
+        const menuReal = utils_1.default.menuPackage(menu.root, menu.path);
         menus[(0, lodash_1.trim)(menuReal, '/')] = { message: `${panel}:${name}` };
     }
     panelReady() {
@@ -131,7 +131,7 @@ class PackageV3 extends PackageInterface {
         super.menuBuild(menuOpts);
         let menu = this.packageData.contributions.menu;
         let msgKey = this.addMessage(menuOpts);
-        const menuReal = utils_1.default.menuPackage(menuOpts.path);
+        const menuReal = utils_1.default.menuPackage(menuOpts.root, menuOpts.path);
         let { newLabel, newPath } = this.dealPath(menuReal);
         menu.push({
             path: newPath,
