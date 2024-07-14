@@ -1,8 +1,6 @@
+import { Argument, Command, OptionValues, program } from 'commander';
+import { default as Chain, default as Config } from 'webpack-chain';
 import { CocosPluginService } from './service';
-import Chain from 'webpack-chain'
-import Config from 'webpack-chain';
-import { PluginApi } from './plugin-api';
-import { Argument, Command, program, Option, OptionValues } from 'commander';
 
 export type PluginCmdOptions = {
     description?: string,
@@ -19,7 +17,6 @@ export type PluginCmdOptions = {
     }>
 };
 export type PluginCmdCallback = (param: string, options: OptionValues[]) => void;
-
 
 export class PluginMgr {
     private service: CocosPluginService;

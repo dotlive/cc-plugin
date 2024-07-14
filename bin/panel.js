@@ -3,13 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const declare_1 = require("./declare");
-const path_1 = require("path");
 const fs_extra_1 = require("fs-extra");
 const html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
-const const_1 = require("./chrome/const");
-const log_1 = require("./log");
+const path_1 = require("path");
 const analysis_1 = require("./analysis");
+const const_1 = require("./chrome/const");
+const declare_1 = require("./declare");
+const log_1 = require("./log");
 class Panel {
     constructor(service, webpackChain) {
         this.service = service;

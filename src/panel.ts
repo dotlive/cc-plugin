@@ -1,13 +1,12 @@
-import { CocosPluginOptions, PanelOptions, PluginType, Panel as PanelOptionsType } from './declare';
-import { basename, extname, join } from 'path'
-import { existsSync, } from 'fs-extra'
-import { CocosPluginService } from './service';
-import Config from 'webpack-chain';
+import { existsSync, } from 'fs-extra';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { template } from "lodash";
-import { ChromeConst } from './chrome/const';
-import { log } from './log'
+import { basename, extname, join } from 'path';
+import Config from 'webpack-chain';
 import { Analysis } from './analysis';
+import { ChromeConst } from './chrome/const';
+import { CocosPluginOptions, PanelOptions, Panel as PanelOptionsType, PluginType } from './declare';
+import { log } from './log';
+import { CocosPluginService } from './service';
 
 export default class Panel {
     private service: CocosPluginService;

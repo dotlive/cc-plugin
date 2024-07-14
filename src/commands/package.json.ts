@@ -1,9 +1,9 @@
-import webpack from 'webpack';
-import {CocosPluginV2, CocosPluginV3, PluginType} from '../declare';
-import Path from 'path';
 import * as FsExtra from 'fs-extra';
+import Path from 'path';
+import webpack from 'webpack';
+import { CocosPluginV2, CocosPluginV3, PluginType } from '../declare';
 import { CocosPluginService } from '../service';
-import {PackageInterface, PackageV2, PackageV3} from './package-worker';
+import { PackageInterface, PackageV2, PackageV3 } from './package-worker';
 
 export default class CocosPluginPackageJson {
     private service;

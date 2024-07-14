@@ -28,21 +28,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cocosPluginService = exports.CocosPluginService = void 0;
 const declare_1 = require("./declare");
-const Path = __importStar(require("path"));
-const serve_1 = __importDefault(require("./commands/serve"));
-const pack_1 = __importDefault(require("./commands/pack"));
-const base_1 = __importDefault(require("./config/base"));
-const lodash_1 = require("lodash");
-const FS = __importStar(require("fs"));
-const interpret_1 = require("interpret");
-const rechoir_1 = require("rechoir");
 const dotenv_1 = __importDefault(require("dotenv"));
 const dotenv_expand_1 = __importDefault(require("dotenv-expand"));
+const FS = __importStar(require("fs"));
+const FsExtra = __importStar(require("fs-extra"));
+const interpret_1 = require("interpret");
+const lodash_1 = require("lodash");
+const Path = __importStar(require("path"));
+const rechoir_1 = require("rechoir");
+const create_1 = __importDefault(require("./commands/create"));
+const pack_1 = __importDefault(require("./commands/pack"));
+const serve_1 = __importDefault(require("./commands/serve"));
+const base_1 = __importDefault(require("./config/base"));
+const const_1 = require("./const");
 const log_1 = require("./log");
 const plugin_mgr_1 = require("./plugin-mgr");
-const create_1 = __importDefault(require("./commands/create"));
-const FsExtra = __importStar(require("fs-extra"));
-const const_1 = require("./const");
 const ccpConfigJson = "cc-plugin.json";
 class CocosPluginService {
     constructor(context) {

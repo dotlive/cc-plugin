@@ -26,9 +26,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const declare_1 = require("../declare");
-const path_1 = __importDefault(require("path"));
 const FsExtra = __importStar(require("fs-extra"));
+const path_1 = __importDefault(require("path"));
+const declare_1 = require("../declare");
 const package_worker_1 = require("./package-worker");
 class CocosPluginPackageJson {
     constructor(service) {

@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PluginMgr = void 0;
-const webpack_chain_1 = __importDefault(require("webpack-chain"));
 const commander_1 = require("commander");
+const webpack_chain_1 = __importDefault(require("webpack-chain"));
 class PluginMgr {
     constructor(service) {
         this.service = service;

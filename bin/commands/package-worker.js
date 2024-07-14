@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PackageV3 = exports.PackageV2 = exports.PackageInterface = void 0;
-const log_1 = require("../log");
 const lodash_1 = require("lodash");
-const utils_1 = __importDefault(require("../utils"));
 const common_1 = require("../common");
+const log_1 = require("../log");
+const utils_1 = __importDefault(require("../utils"));
 class PackageInterface {
     constructor(config) {
         this.config = config;

@@ -6,23 +6,23 @@ import {
     PluginType
 } from './declare';
 
-import * as Path from 'path';
-import Serve from './commands/serve'
-import Pack from './commands/pack'
-import Base from './config/base'
-import { PluginApi } from './plugin-api';
-import { defaultsDeep } from 'lodash'
+import dotenv from 'dotenv';
+import dotenvExpand from 'dotenv-expand';
 import * as FS from 'fs';
-import { extensions } from 'interpret'
-import { prepare } from 'rechoir'
-import dotenv from 'dotenv'
-import dotenvExpand from 'dotenv-expand'
-import { log } from './log';
-import { PluginMgr } from './plugin-mgr';
+import * as FsExtra from 'fs-extra';
+import { extensions } from 'interpret';
+import { defaultsDeep } from 'lodash';
+import * as Path from 'path';
+import { prepare } from 'rechoir';
+import type * as webpack from 'webpack';
 import Create from './commands/create';
-import * as FsExtra from 'fs-extra'
+import Pack from './commands/pack';
+import Serve from './commands/serve';
+import Base from './config/base';
 import { ConfigTypeScript, ConfigWebpack } from './const';
-import type * as webpack from 'webpack'
+import { log } from './log';
+import { PluginApi } from './plugin-api';
+import { PluginMgr } from './plugin-mgr';
 
 export interface ProjectConfig {
     manifest: CocosPluginManifest,

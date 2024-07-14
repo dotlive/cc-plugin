@@ -1,21 +1,19 @@
-import { PluginApi } from '../plugin-api';
-import { ProjectConfig, CocosPluginService, cocosPluginService } from '../service';
-import Config from 'webpack-chain';
-import webpack, { cache } from 'webpack'
-import { PluginMgr } from '../plugin-mgr';
-import { log } from '../log';
-import Zip from '../plugin/zip';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin'
-import * as Path from 'path';
-import { PluginType } from '../declare';
+import { OptionValues } from 'commander';
+import { existsSync } from 'fs';
+import { copySync, emptyDirSync, ensureDirSync } from 'fs-extra';
 import { merge } from 'lodash';
+import * as Path from 'path';
+import TerserPlugin from 'terser-webpack-plugin';
+import webpack from 'webpack';
+import Config from 'webpack-chain';
+import { PluginType } from '../declare';
+import { log } from '../log';
+import { PluginApi } from '../plugin-api';
+import { PluginMgr } from '../plugin-mgr';
+import Zip from '../plugin/zip';
+import { CocosPluginService, cocosPluginService } from '../service';
+import { checkBuildType, defineVar, getBuildOptions, parseBuildOptions } from './commonOptions';
 import { getFallback } from './fallback';
-import { existsSync, statSync } from 'fs';
-import { copyFileSync, copySync, emptyDirSync, ensureDirSync } from 'fs-extra';
-import { Option, OptionValues } from 'commander';
-import { checkBuildType, getBuildOptions, parseBuildOptions, defineVar } from './commonOptions';
-import { showWeChatQrCode } from './tool';
 
 export default class Pack extends PluginApi {
     exit() {

@@ -1,10 +1,10 @@
+import { trim } from 'lodash';
+import { ProjectConfig } from 'service';
+import { getV3MethodFunctionName, getV3PanelRecvMessageFunctionName } from '../common';
 import { CocosPluginConfig, CocosPluginV2, CocosPluginV3, MenuOptions, PanelOptions, PanelOptionsV3 } from '../declare';
 import { log } from '../log';
-import { trim } from 'lodash'
-import utils from "../utils"
-import { ProjectConfig } from 'service';
-import { CreatorV3Limit } from '../const';
-import { getV3MethodFunctionName, getV3PanelRecvMessageFunctionName } from '../common';
+import utils from "../utils";
+
 export abstract class PackageInterface {
     protected config: CocosPluginConfig;
 

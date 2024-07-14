@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const service_1 = require("./service");
 const declare_1 = require("./declare");
+const service_1 = require("./service");
 class Utils {
     constructor() {
         this.manifest = null;
@@ -22,8 +22,8 @@ class Utils {
              */
             panel: '',
             /**
-         * 扩展菜单
-         */
+             * 扩展菜单
+             */
             package: '',
             /**
              * 开发者菜单

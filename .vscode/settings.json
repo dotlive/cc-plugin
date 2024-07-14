@@ -23,5 +23,12 @@
   },
   "git.ignoreLimitWarning": true,
   "cSpell.words": ["Fspath"],
-  "emmet.includeLanguages": { "ejs": "html" }
+  "emmet.includeLanguages": {
+    "ejs": "html"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.removeUnusedImports": "always",
+    "source.sortImports": "always"
+  }
 }

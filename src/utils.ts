@@ -1,5 +1,5 @@
+import { CocosPluginManifest, CocosPluginOptions, PluginType } from './declare';
 import { ProjectConfig, cocosPluginService } from './service';
-import { CocosPluginConfig, CocosPluginManifest, CocosPluginOptions, PluginType } from './declare';
 
 class Utils {
     private manifest: CocosPluginManifest | null = null;
@@ -7,26 +7,26 @@ class Utils {
     private _init: boolean = false;
     // 内置的菜单
     public builtinMenu = {
-      /**
-       * 项目菜单
-       */
-        project: '',
-      /**
-       * 节点菜单
-       */
-      node: '',
-      /**
-       * 面板菜单
-       */
-      panel: '',
         /**
-     * 扩展菜单
-     */
+         * 项目菜单
+         */
+        project: '',
+        /**
+         * 节点菜单
+         */
+        node: '',
+        /**
+         * 面板菜单
+         */
+        panel: '',
+        /**
+         * 扩展菜单
+         */
         package: '',
-      /**
-       * 开发者菜单
-       */
-      develop: "",
+        /**
+         * 开发者菜单
+         */
+        develop: "",
     }
     init(config: ProjectConfig) {
         this._init = true;
@@ -38,10 +38,10 @@ class Utils {
             this.builtinMenu.package = this.toi18n('MAIN_MENU.package.title');
         } else if (type === PluginType.PluginV3) {
             this.builtinMenu.project = this.toi18n('menu.project')
-          this.builtinMenu.node = this.toi18n('menu.node');
-          this.builtinMenu.panel = this.toi18n('menu.panel');
-          this.builtinMenu.package = this.toi18n('menu.extension');
-          this.builtinMenu.develop = this.toi18n('develop');
+            this.builtinMenu.node = this.toi18n('menu.node');
+            this.builtinMenu.panel = this.toi18n('menu.panel');
+            this.builtinMenu.package = this.toi18n('menu.extension');
+            this.builtinMenu.develop = this.toi18n('develop');
         }
     }
     menuProject(name: string): string {

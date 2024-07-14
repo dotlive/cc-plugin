@@ -1,8 +1,8 @@
-import { PluginCmdOptions } from "plugin-mgr";
-import Config from "webpack-chain";
-import webpack, { cache } from 'webpack'
-import { PluginType } from "../declare";
 import { OptionValues } from "commander";
+import { PluginCmdOptions } from "plugin-mgr";
+import webpack from 'webpack';
+import Config from "webpack-chain";
+import { PluginType } from "../declare";
 
 export function getBuildOptions(name: string): PluginCmdOptions {
     return {

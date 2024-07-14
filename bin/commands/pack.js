@@ -35,18 +35,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const plugin_api_1 = require("../plugin-api");
-const service_1 = require("../service");
-const webpack_1 = __importDefault(require("webpack"));
-const log_1 = require("../log");
-const zip_1 = __importDefault(require("../plugin/zip"));
-const terser_webpack_plugin_1 = __importDefault(require("terser-webpack-plugin"));
-const Path = __importStar(require("path"));
-const lodash_1 = require("lodash");
-const fallback_1 = require("./fallback");
 const fs_1 = require("fs");
 const fs_extra_1 = require("fs-extra");
+const lodash_1 = require("lodash");
+const Path = __importStar(require("path"));
+const terser_webpack_plugin_1 = __importDefault(require("terser-webpack-plugin"));
+const webpack_1 = __importDefault(require("webpack"));
+const log_1 = require("../log");
+const plugin_api_1 = require("../plugin-api");
+const zip_1 = __importDefault(require("../plugin/zip"));
+const service_1 = require("../service");
 const commonOptions_1 = require("./commonOptions");
+const fallback_1 = require("./fallback");
 class Pack extends plugin_api_1.PluginApi {
     exit() {
         process.exit(0);

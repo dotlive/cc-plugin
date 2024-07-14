@@ -1,15 +1,14 @@
+import { OptionValues } from 'commander';
+import * as Fs from 'fs';
+import * as FsExtra from 'fs-extra';
+import * as Path from 'path';
+import { ConfigTypeScript } from '../const';
+import { PluginType } from '../declare';
+import { log } from '../log';
 import { PluginApi } from '../plugin-api';
 import { PluginMgr } from '../plugin-mgr';
 import { CocosPluginService } from '../service';
-import * as Fs from 'fs';
-import * as Path from 'path';
-import { log } from '../log';
-import *as FsExtra from 'fs-extra'
-import { npmInstall } from '../plugin/npm-install';
-import { OptionValues } from 'commander';
 import { showWeChatQrCode } from './tool';
-import { PluginType } from '../declare';
-import { ConfigTypeScript } from '../const';
 
 export default class Create extends PluginApi {
     apply(api: PluginMgr, service: CocosPluginService): void {

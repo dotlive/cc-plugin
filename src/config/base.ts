@@ -1,24 +1,23 @@
-import { PluginApi } from '../plugin-api';
-import { CocosPluginService } from '../service';
-import WebpackChain from 'webpack-chain';
-import { PluginMgr } from '../plugin-mgr';
-import { PluginType } from '../declare';
-import Path, { resolve, join } from 'path';
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import Fs, { existsSync } from 'fs';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
-import Panel from '../panel';
-import NpmInstall from '../plugin/npm-install';
-import CocosPluginPackageJson from '../commands/package.json';
-import { ChromeManifest } from '../chrome/chrome-manifest'
-import { VueLoaderPlugin } from 'vue-loader';
-import requireV3 from '../plugin/require-v3';
-import Readme from '../plugin/readme';
-import webpack from 'webpack';
-import { log } from '../log';
 import * as FsExtra from 'fs-extra';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import Path, { join, resolve } from 'path';
+import { VueLoaderPlugin } from 'vue-loader';
+import webpack from 'webpack';
+import WebpackChain from 'webpack-chain';
+import { ChromeManifest } from '../chrome/chrome-manifest';
+import CocosPluginPackageJson from '../commands/package.json';
+import { log } from '../log';
+import Panel from '../panel';
+import { PluginApi } from '../plugin-api';
+import { PluginMgr } from '../plugin-mgr';
+import NpmInstall from '../plugin/npm-install';
+import Readme from '../plugin/readme';
+import requireV3 from '../plugin/require-v3';
+import { CocosPluginService } from '../service';
 // @ts-ignore
-import filter from 'webpack-filter-warnings-plugin'
+import filter from 'webpack-filter-warnings-plugin';
 import { ConfigTypeScript } from '../const';
 
 export default class Base extends PluginApi {

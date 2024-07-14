@@ -23,14 +23,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const plugin_api_1 = require("../plugin-api");
 const Fs = __importStar(require("fs"));
-const Path = __importStar(require("path"));
-const log_1 = require("../log");
 const FsExtra = __importStar(require("fs-extra"));
-const tool_1 = require("./tool");
-const declare_1 = require("../declare");
+const Path = __importStar(require("path"));
 const const_1 = require("../const");
+const declare_1 = require("../declare");
+const log_1 = require("../log");
+const plugin_api_1 = require("../plugin-api");
+const tool_1 = require("./tool");
 class Create extends plugin_api_1.PluginApi {
     apply(api, service) {
         api.registerCommand('create', {
