@@ -13,7 +13,6 @@ export interface MenuOptions {
      * 如果是以i18n.开头，会自动进行i18n相关的展开
      * 比如在2.x插件中，i18n.title会展开为 EditorMenu/i18n:PackageName.title
      */
-    root: string;
     path: string;
     icon?: string;
     accelerator?: string;

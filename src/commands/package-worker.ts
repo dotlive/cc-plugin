@@ -51,7 +51,7 @@ export class PackageV2 extends PackageInterface {
         let menus = this.packageData!['main-menu']!;
         const { name } = menu.message;
         const panel = menu.message.panel || this.config.manifest.name;
-        const menuReal = utils.menuPackage(menu.root, menu.path);
+        const menuReal = utils.menuPackage(menu.path);
         menus[trim(menuReal, '/')] = { message: `${panel}:${name}` };
     }
 
@@ -139,7 +139,7 @@ export class PackageV3 extends PackageInterface {
         super.menuBuild(menuOpts);
         let menu = this.packageData!.contributions!.menu!;
         let msgKey = this.addMessage(menuOpts);
-        const menuReal = utils.menuPackage(menuOpts.root, menuOpts.path);
+        const menuReal = utils.menuPackage(menuOpts.path);
         let { newLabel, newPath } = this.dealPath(menuReal);
         menu.push({
             path: newPath,

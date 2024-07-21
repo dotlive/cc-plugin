@@ -6,6 +6,7 @@ class Utils {
     constructor() {
         this.manifest = null;
         this.options = null;
+        this.i18nFlag = "i18n.";
         this._init = false;
         // 内置的菜单
         this.builtinMenu = {
@@ -49,30 +50,35 @@ class Utils {
         }
     }
     menuProject(name) {
-        return this.doI18n(this.builtinMenu.project, name);
+        return this.doI18n(name, this.builtinMenu.project);
     }
-    menuPackage(root, name) {
-        return this.doI18n(root, name);
+    menuPackage(name) {
+        return this.doI18n(name);
     }
-    doI18n(head, name, separator = '/') {
+    doI18n(name, head, separator = '/') {
         if (!this._init) {
             console.error("need init");
             return "";
         }
-        const i18nFlag = "i18n.";
         const newPathParts = Array();
+        // head
+        if (head !== undefined && head !== null) {
+            newPathParts.push(this.tryAppendi18n(head));
+        }
+        // path
         const curPathParts = name.split(separator);
-        for (let pathPart in curPathParts) {
-            if (pathPart.startsWith(i18nFlag)) {
-                pathPart = pathPart.substring(i18nFlag.length, pathPart.length);
-                service_1.cocosPluginService.checkI18nKey(pathPart);
-                newPathParts.push(`${head}/${this.i18n(pathPart)}`);
-            }
-            else {
-                newPathParts.push(`${head}/${pathPart}`);
-            }
+        for (let pathPart of curPathParts) {
+            newPathParts.push(this.tryAppendi18n(pathPart));
         }
         return newPathParts.join(separator);
+    }
+    tryAppendi18n(key) {
+        if (key.startsWith(this.i18nFlag)) {
+            key = key.substring(this.i18nFlag.length, key.length);
+            service_1.cocosPluginService.checkI18nKey(key);
+            return this.i18n(key);
+        }
+        return key;
     }
     i18n(key) {
         const pkgName = this.manifest.name;

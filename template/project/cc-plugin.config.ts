@@ -1,5 +1,5 @@
 // @ts-ignore
-import { CocosPluginManifest, CocosPluginOptions, Panel, PluginType } from 'cc-plugin/src/declare';
+import { CocosPluginManifest, CocosPluginOptions, Panel } from 'cc-plugin/src/declare';
 
 const pkgName = '%pkg_name%';
 
@@ -23,7 +23,7 @@ const manifest: CocosPluginManifest = {
     ],
     menus: [
         {
-            path: `i18n.title`,
+            path: `i18n.menuRoot/i18n.title`,
             message: {
                 name: 'showPanel',
             },

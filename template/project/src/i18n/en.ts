@@ -1,1 +1,4 @@
-export const title = 'my first plugin'
+module.exports = {
+    title: 'my first plugin',
+    menuRoot: 'Extension'
+}

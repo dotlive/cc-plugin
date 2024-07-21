@@ -4,6 +4,7 @@ import { ProjectConfig, cocosPluginService } from './service';
 class Utils {
     private manifest: CocosPluginManifest | null = null;
     public options: CocosPluginOptions | null = null;
+    private i18nFlag: string = "i18n.";
     private _init: boolean = false;
     // 内置的菜单
     public builtinMenu = {
@@ -45,29 +46,35 @@ class Utils {
         }
     }
     menuProject(name: string): string {
-        return this.doI18n(this.builtinMenu.project, name);
+        return this.doI18n(name, this.builtinMenu.project);
     }
-    menuPackage(root: string, name: string): string {
-        return this.doI18n(root, name);
+    menuPackage(name: string): string {
+        return this.doI18n(name);
     }
-    private doI18n(head: string, name: string, separator: string = '/'): string {
+    private doI18n(name: string, head?: string, separator: string = '/'): string {
         if (!this._init) {
             console.error("need init");
             return "";
         }
-        const i18nFlag = "i18n.";
         const newPathParts = Array<string>();
+        // head
+        if (head !== undefined && head !== null) {
+            newPathParts.push(this.tryAppendi18n(head));
+        }
+        // path
         const curPathParts = name.split(separator);
-        for (let pathPart in curPathParts) {
-            if (pathPart.startsWith(i18nFlag)) {
-                pathPart = pathPart.substring(i18nFlag.length, pathPart.length);
-                cocosPluginService.checkI18nKey(pathPart);
-                newPathParts.push(`${head}/${this.i18n(pathPart)}`);
-            } else {
-                newPathParts.push(`${head}/${pathPart}`);
-            }
+        for (let pathPart of curPathParts) {
+            newPathParts.push(this.tryAppendi18n(pathPart));
         }
         return newPathParts.join(separator);
+    }
+    tryAppendi18n(key: string): string {
+        if (key.startsWith(this.i18nFlag)) {
+            key = key.substring(this.i18nFlag.length, key.length);
+            cocosPluginService.checkI18nKey(key);
+            return this.i18n(key);
+        }
+        return key;
     }
     i18n(key: string) {
         const pkgName = this.manifest!.name;
